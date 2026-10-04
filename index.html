@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TaskFlow - a beautiful, simple to-do list app" />
+  <title>TaskFlow | Smart To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Decorative blurred gradient shapes -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
 
+  <main class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>Task<span>Flow</span></h1>
+      <p>Organize your day. Focus on what matters.</p>
+    </header>
+
+    <!-- Dashboard statistics -->
+    <section class="stats" aria-label="Task statistics">
+      <div class="glass stat">
+        <span class="stat-label">Total</span>
+        <strong id="statTotal">0</strong>
+      </div>
+      <div class="glass stat">
+        <span class="stat-label">Active</span>
+        <strong id="statActive">0</strong>
+      </div>
+      <div class="glass stat">
+        <span class="stat-label">Completed</span>
+        <strong id="statDone">0</strong>
+      </div>
+      <div class="glass stat">
+        <span class="stat-label">High Priority</span>
+        <strong id="statHigh">0</strong>
+      </div>
+    </section>
+
+    <!-- Progress bar -->
+    <section class="glass progress-card">
+      <div class="progress-top">
+        <span>Overall progress</span>
+        <span id="progressText">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </section>
+
+    <!-- Add task form -->
+    <form class="glass add-form" id="taskForm">
+      <input type="text" id="taskInput" placeholder="What needs to be done?" maxlength="100" autocomplete="off" required />
+      <select id="prioritySelect" aria-label="Task priority">
+        <option value="high">🔴 High</option>
+        <option value="medium" selected>🟡 Medium</option>
+        <option value="low">🟢 Low</option>
+      </select>
+      <button type="submit" class="btn-add">+ Add Task</button>
+    </form>
+
+    <!-- Filters and live counter -->
+    <div class="toolbar">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <div class="counter"><span id="counter">0 tasks left</span></div>
+    </div>
+
+    <!-- Task list -->
+    <section class="glass list-card">
+      <ul id="taskList" class="task-list"></ul>
+
+      <!-- Empty state message -->
+      <div id="emptyState" class="empty hidden">
+        <div class="empty-icon">✨</div>
+        <h3 id="emptyTitle">No tasks yet</h3>
+        <p id="emptyText">Add your first task above and start being productive!</p>
+      </div>
+    </section>
+
+    <button id="clearBtn" class="btn-clear">Clear completed</button>
+
+    <footer class="footer">Built with ❤️ using HTML, CSS &amp; JavaScript</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
